@@ -4,10 +4,6 @@ import TextField from '@material-ui/core/TextField';
 
 import Venue from '../components/Venue';
 
-// const venues = [{
-//     name: 'Musketeers', address: 'Conabor Rd, Malvern', id: '0', imgUrl: 'https://s3-us-west-2.amazonaws.com/brewersassoc/wp-content/uploads/2017/04/draft-feature-463x600.jpg'}, 
-//     {name: 'Knightsway Tavern', address: 'knightsway rd', id: '1', imgUrl: 'https://unsplash.com/photos/MYxvETrYabg'}
-// ];
 export default class VenueList extends Component {
     constructor(props) {
         super(props);
@@ -16,17 +12,7 @@ export default class VenueList extends Component {
             searchString: ''
         }
     }
-    // getVenues = async () => {
-    //     try {
-    //       let response = await fetch(
-    //         'http://localhost:3001/venues'
-    //       );
-    //       let responseJson = await response.json();
-    //       console.log(responseJson)
-    //     } catch (error) {
-    //       console.error(error);
-    //     }
-    //   }
+    
     componentWillMount = () => {
         fetch('http://localhost:3001/venues', {crossdomain: true})
             .then((response) => {
