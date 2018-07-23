@@ -28,7 +28,6 @@ export default class VenueList extends Component {
     //     }
     //   }
     componentWillMount = () => {
-        //this.getVenues();
         fetch('http://localhost:3001/venues', {crossdomain: true})
             .then((response) => {
                 return response.json()
