@@ -13,7 +13,7 @@ export default class Venue extends Component {
             <div>
                 <Card >
                     <CardMedia style={{height: 0, paddingTop: '56.25%'}}
-                    image={'http://localhost:3001/images/' + this.props.venue.imageUrl}
+                    image={'http://localhost:3001/image/' + this.props.venue.imageUrl}
                     title={this.props.venue.name}
                     />
                     <CardContent>

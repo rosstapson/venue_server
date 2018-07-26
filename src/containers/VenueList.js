@@ -9,6 +9,7 @@ export default class VenueList extends Component {
         super(props);
         this.state = {
             venues: '',
+            filteredVenues: '',
             searchString: ''
         }
     }
@@ -21,7 +22,8 @@ export default class VenueList extends Component {
             .then((json) => {
                 console.log(json)
                 this.setState({
-                    venues: json
+                    venues: json,
+                    filteredVenues: json
                 })
             })
             .catch((error) => {
@@ -29,12 +31,17 @@ export default class VenueList extends Component {
             }) 
     }
     onSearchInputChange = (event) => {
-        this.setState({ searchString: event.target.value})
+        let searchString = event.target.value;
+        let tempVenues = this.state.venues.filter((venue) => {
+            return venue.name.includes(searchString);
+        })
+        console.log(tempVenues)
+        this.setState({ searchString: searchString, filteredVenues: tempVenues})
     }
     render() {
         return(
             <div>
-                {this.state.venues ? (
+                {this.state.filteredVenues ? (
                     <div>
                         <TextField style={{padding: 24}}
                             id="searchInput"
@@ -43,7 +50,7 @@ export default class VenueList extends Component {
                             onChange={this.onSearchInputChange}
                             />
                         <Grid container spacing={24} style={{padding: 24}}>
-                            { this.state.venues.map(venue => (
+                            { this.state.filteredVenues.map(venue => (
                                 <Grid item xs={12} sm={6} lg={4} xl={3} key={venue._id}>
                                     <Venue venue={venue} />
                                 </Grid>
