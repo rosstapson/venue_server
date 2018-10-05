@@ -4,6 +4,7 @@ import NavBar from './components/NavBar';
 import VenueList from './containers/VenueList';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import AddVenue from './containers/AddVenue';
+import Login from './containers/Login'
 
 const title = 'Venu8';
 
@@ -11,7 +12,8 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      showList: true
+      showList: true,
+      loggedIn: false
     }
   }
   showAddVenue = () => {
@@ -21,6 +23,14 @@ class App extends Component {
     this.setState({showList: true})
   }
   render() {
+    if (!this.state.loggedIn) {
+      return (
+        <div className="App">
+        <CssBaseline />
+        <Login />
+      </div>
+      )
+    }
     return (
       <div className="App">
         <CssBaseline />

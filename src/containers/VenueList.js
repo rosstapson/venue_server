@@ -45,7 +45,7 @@ export default class VenueList extends Component {
                     <div>
                         <TextField style={{padding: 24}}
                             id="searchInput"
-                            placeholder="Search for Venues"   
+                            placeholder="Filter results"   
                             margin="normal"
                             onChange={this.onSearchInputChange}
                             />

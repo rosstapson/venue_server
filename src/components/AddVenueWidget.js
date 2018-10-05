@@ -26,6 +26,15 @@ export default class AddVenueWidget extends Component {
             file: ''
         }
     }
+    componentWillMount(){
+        let height, width = 0;
+        height = window.innerHeight / 2;
+        width = window.innerWidth / 2;
+        this.setState({
+            height:  height + 'px',
+            width:  width + 'px'
+        });
+      }
     handleSubmit = () => {
         if (!this.state.venue.name || !this.state.venue.email) {
             this.setState({open: true})
@@ -87,51 +96,51 @@ export default class AddVenueWidget extends Component {
         
     }
     render() {
+        const cardStyle = {            
+            width: this.state.width
+        }
         return(
             <div>
-                <Card >                   
+                <Card style={cardStyle}>                   
                     <CardContent>
                     <Typography variant="headline" component="h2">
                         Add your venue:
                     </Typography>
-                    <TextField style={{padding: 24, display: 'block'}}
+                    <TextField style={{padding: 16, display: 'block'}}
                         required
                         label="Name"
                         id="name"  
                         margin="normal"
                         onChange={this.onInputChange}
                         />
-                    <TextField style={{padding: 24, display: 'block'}}
+                    <TextField style={{padding: 16, display: 'block'}}
                         id="address"
                         label="Venue address"   
                         margin="normal"
                         onChange={this.onInputChange}
                         />
-                    <TextField style={{padding: 24, display: 'block'}}
+                    <TextField style={{padding: 16, display: 'block'}}
                         id="contactUser"
                         label="Contact Number"   
                         margin="normal"
                         onChange={this.onInputChange}
                         />
-                    <TextField style={{padding: 24, display: 'block'}}
+                    <TextField style={{padding: 16, display: 'block'}}
                         required
                         id="email"
                         label="Email"   
                         margin="normal"
                         onChange={this.onInputChange}
                         />
-                    <ChipInput style={{padding: 24, display: 'block'}}
+                    <ChipInput style={{padding: 16, display: 'block'}}
                         value={this.state.tags}
                         label="Tags"
                         helperText="E.g. kid-friendly, live music, open air"
                         onAdd={(chip) => this.handleAddChip(chip)}
                         onDelete={(chip, index) => this.handleDeleteChip(chip, index)}
-                        />
-                    <Button size="medium" color="primary" variant="outlined" onClick={this.showUpload} target="_blank">
-                        Upload a picture
-                    </Button>
+                        />                    
                     <Dialog
-                        style={{padding: 24, display: 'block'}}
+                        style={{padding: 16, display: 'block'}}
                         open={this.state.showUpload}
                         onClose={this.hideUpload}
                         aria-labelledby="upload-dialog-title"
@@ -148,19 +157,22 @@ export default class AddVenueWidget extends Component {
                             <Button onClick={this.handleUpload} variant="outlined" color="primary" autoFocus>
                                 Submit
                             </Button>
-                            <Button onClick={this.hideUpload} variant="outlined" color="primary" autoFocus>
+                            <Button onClick={this.hideUpload} variant="outlined" color="primary" >
                                 Cancel
                             </Button>
                         </DialogActions>
                     </Dialog>
                     </CardContent>
                     <CardActions>
-                    <Button size="medium" variant="outlined" color="primary" onClick={this.handleSubmit} target="_blank">
-                        Submit
-                    </Button>
-                    <Button size="medium" variant="outlined" color="primary" onClick={this.props.showList} target="_blank">
-                        Cancel
-                    </Button>
+                        <Button color="primary" variant="outlined" onClick={this.showUpload} target="_blank">
+                                Upload a picture
+                            </Button>
+                        <Button size="medium" variant="outlined" color="primary" onClick={this.handleSubmit} target="_blank">
+                            Submit
+                        </Button>
+                        <Button size="medium" variant="outlined" color="primary" onClick={this.props.showList} target="_blank">
+                            Cancel
+                        </Button>
                     <Dialog
                         open={this.state.open}
                         onClose={this.handleClose}
