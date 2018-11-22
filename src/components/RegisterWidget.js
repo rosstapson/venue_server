@@ -1,38 +1,21 @@
-import React from 'react';
-import ReactDom from 'react-dom';
-import Component from 'mson-react/lib/component';
+import React, { Component } from 'react';
+import TextField from '@material-ui/core/TextField';
+import Button from '@material-ui/core/Button'
+import Typography from '@material-ui/core/Typography';
 
-const definition = {
-    component: "Form",
-    fields: [
-        {
-            name: "heading",
-            component: "Text",
-            text: "Register"
-        },
-        {
-            name: "fullName",
-            component: "PersonFullNameField",
-            required: true
-        },
-        {
-            name: "birthday",
-            component: "DateField",
-            label: "Birthday",
-            required: true
-          },
-          {
-            name: "phone",
-            component: "PhoneField",
-            label: "Phone"
-          },
-          {
-            name: "submit",
-            component: "ButtonField",
-            label: "Submit",
-            type: "submit",
-            icon: "Send"
-          }
-    ]
-    
+
+export default class RegisterWidget extends Component {
+    render(){
+        return(
+            <div>
+                <Typography variant="headline" gutterBottom>
+                    Register
+                </Typography>
+                <TextField title='Username' onChange={this.props.usernameInput} /><br />
+                <TextField title='Email' onChange={this.props.emailInput} /><br />
+                <TextField title='Password' type='password' onChange={this.props.passwordInput} /><br />
+                <Button title='zomg' onClick={this.props.doLogin}>Zomg</Button>
+            </div>
+        )
+    }
 }
