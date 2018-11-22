@@ -28,6 +28,11 @@ export default class Venue extends Component {
                     <Button size="small" color="primary" href={this.props.venue.url} target="_blank">
                         Go To Website
                     </Button>
+                    {!this.props.venue.menu &&
+                        <Button size="small" color="primary" onClick={() => { alert('onClick') }} target="_blank">
+                            View Menu
+                        </Button>
+                    }
                     </CardActions>
                 </Card>
             </div>

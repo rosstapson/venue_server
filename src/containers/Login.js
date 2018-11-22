@@ -9,11 +9,28 @@ export default class Login extends Component {
             password: ''
         }
     }
+    doLogin = () => {
+        let user = {
+            username: this.state.username, 
+            password: this.state.password
+        }
+        this.props.setLoggedIn(user);
+    }
+    usernameInput = (event) => {
+        this.setState({username: event.target.value})
+    }
+    passwordInput = (event) => {
+        this.setState({password: event.target.value})        
+    }
     render() {
         return(
             <div>
-                <h1>Login container</h1>
-                <LoginWidget />
+                <h1>Login</h1>
+                <LoginWidget 
+                    doLogin={this.doLogin}
+                    usernameInput={this.usernameInput}
+                    passwordInput={this.passwordInput}
+                />
             </div>
         )
     }

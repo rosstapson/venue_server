@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+//import {observer} from 'mobx-react';
 import './App.css';
 import NavBar from './components/NavBar';
 import VenueList from './containers/VenueList';
@@ -16,6 +17,12 @@ class App extends Component {
       loggedIn: false
     }
   }
+  setLoggedIn = (user) => {
+    this.setState({
+      loggedIn: true,
+      user: user
+    })
+  }
   showAddVenue = () => {
     this.setState({showList: false})
   }
@@ -27,7 +34,7 @@ class App extends Component {
       return (
         <div className="App">
         <CssBaseline />
-        <Login />
+        <Login setLoggedIn={this.setLoggedIn}/>
       </div>
       )
     }
