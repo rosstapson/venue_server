@@ -3,13 +3,9 @@ import React, { Component } from 'react';
 import AddVenueWidget from '../components/AddVenueWidget';
 
 export default class AddVenue extends Component {
-    submitVenue = (venue) => {
-        console.log(venue)
+    submitVenue = (venue) => {        
         let config = {
-            method: "POST", 
-            //mode: "cors",
-            //cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
-            //credentials: "same-origin", // include, same-origin, *omit
+            method: "POST",           
             headers: {
                 "Content-Type": "application/json; charset=utf-8"
             },

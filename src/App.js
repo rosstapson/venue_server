@@ -6,6 +6,7 @@ import VenueList from './containers/VenueList';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import AddVenue from './containers/AddVenue';
 import Login from './containers/Login'
+import Register from './containers/Register'
 
 const title = 'Venu8';
 
@@ -14,7 +15,9 @@ class App extends Component {
     super(props);
     this.state = {
       showList: true,
-      loggedIn: false
+      loggedIn: false,
+      showLogin: false,
+      showRegister: false,
     }
   }
   setLoggedIn = (user) => {
@@ -29,8 +32,17 @@ class App extends Component {
   showVenueList = () => {
     this.setState({showList: true})
   }
+  showLogin = () => {
+    this.setState({ showLogin: true })
+  }
+  showRegister = () => {
+    this.setState({ showRegister: true })
+  }
+  showRegisterSuccess = () => {
+    alert('zomg')
+  }
   render() {
-    if (!this.state.loggedIn) {
+    if (this.state.showLogin) {
       return (
         <div className="App">
         <CssBaseline />
@@ -38,10 +50,18 @@ class App extends Component {
       </div>
       )
     }
+    if (this.state.showRegister) {
+      return(
+        <div className="App">
+          <CssBaseline />
+          <Register showRegisterSuccess={this.showRegisterSuccess } />
+        </div>
+      )
+    }
     return (
       <div className="App">
         <CssBaseline />
-        <NavBar title={title} showAddVenue={this.showAddVenue}/>
+        <NavBar title={title} showAddVenue={this.showAddVenue} showLogin={this.showLogin} showRegister={this.showRegister} />
         {this.state.showList ? <VenueList /> : <AddVenue showList={this.showVenueList} /> }
        
       </div>

@@ -48,13 +48,11 @@ class NavBar extends Component {
                     <Typography variant="title" color="inherit">
                         {this.props.title}
                     </Typography>
-                    <Menu 
-                        open={this.state.menuOpen}
-                        
-                    >
+                    <Menu open={this.state.menuOpen} >
                         <MenuItem onClick={this.handleAddVenue}>Add Venue</MenuItem>
                     </Menu>
-                    <Button color="inherit">Login</Button>
+                    <Button color="inherit" onClick={this.props.showLogin } >Login</Button>
+                    <Button color="inherit" onClick={this.props.showRegister } >Register</Button>
                 </Toolbar>
             </AppBar>
             </div>
