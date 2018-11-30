@@ -9,6 +9,10 @@ export default class Register extends Component {
         }        
     }
     doRegister = () => {
+        let user = { ...this.state.user };
+        let address = [user.address1, user.address2, user.address3];
+        console.log(address)
+        user.address = address;
         let config = {
             method: "POST",           
             headers: {
