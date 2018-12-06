@@ -8,7 +8,8 @@ export default class LoginWidget extends Component {
             <div>               
                 <TextField title='Username' placeholder='Username' onChange={this.props.usernameInput} /><br />
                 <TextField title='Password' placeholder='Password' type='password' onChange={this.props.passwordInput} /><br />
-                <Button title='zomg' onClick={this.props.doLogin}>Zomg</Button>
+                <Button title='zomg' onClick={this.props.doLogin}>Log In</Button>
+                <Button title='Not registered yet?' onClick={this.props.goToRegister}>Not registered yet?</Button>
             </div>
         )
     }

@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component } from 'reactn';
 //import Alert from '@material-ui/core/';
 import AddVenueWidget from '../components/AddVenueWidget';
 

@@ -1,5 +1,4 @@
-import React, { Component } from 'react';
-//import {observer} from 'mobx-react';
+import React, { Component, setGlobal } from 'reactn';
 import './App.css';
 import NavBar from './components/NavBar';
 import VenueList from './containers/VenueList';
@@ -9,23 +8,27 @@ import Login from './containers/Login'
 import Register from './containers/Register'
 
 const title = 'Venu8';
+setGlobal({
+  loggedIn: false,
+  showList: false,
+  showLogin: true,
+  showRegister: false,
+  token: localStorage.getItem('token'),
+  user: localStorage.getItem('user')
+})
 
 class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      showList: true,
-      loggedIn: false,
-      showLogin: false,
-      showRegister: false,
+  componentDidMount = () => {
+    if (this.global.token && this.global.user) {
+      // TODO: check token against api
+      setGlobal({
+        loggedIn: true,
+        showList: true,
+        showLogin: false
+      })
     }
   }
-  setLoggedIn = (user) => {
-    this.setState({
-      loggedIn: true,
-      user: user
-    })
-  }
+  
   showAddVenue = () => {
     this.setState({showList: false})
   }
@@ -42,15 +45,15 @@ class App extends Component {
     alert('zomg')
   }
   render() {
-    if (this.state.showLogin) {
+    if (this.global.showLogin) {
       return (
         <div className="App">
         <CssBaseline />
-        <Login setLoggedIn={this.setLoggedIn}/>
+        <Login />
       </div>
       )
     }
-    if (this.state.showRegister) {
+    if (this.global.showRegister) {
       return(
         <div className="App">
           <CssBaseline />
@@ -62,7 +65,7 @@ class App extends Component {
       <div className="App">
         <CssBaseline />
         <NavBar title={title} showAddVenue={this.showAddVenue} showLogin={this.showLogin} showRegister={this.showRegister} />
-        {this.state.showList ? <VenueList /> : <AddVenue showList={this.showVenueList} /> }
+        {this.global.showList ? <VenueList /> : <AddVenue showList={this.showVenueList} /> }
        
       </div>
     );

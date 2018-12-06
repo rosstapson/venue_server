@@ -6780,6 +6780,13 @@ react@^16.4.1:
     object-assign "^4.1.1"
     prop-types "^15.6.0"
 
+reactn@^0.1.6:
+  version "0.1.6"
+  resolved "https://registry.yarnpkg.com/reactn/-/reactn-0.1.6.tgz#fbabde196d36784568422d71abba93098020d660"
+  integrity sha512-fg8CdJUg0F/jES+BWV5OBOfFpAbr9iabzxP5cmTaJe7vcZo21/1+yuADrjd5lIVEtdknfYmfcIU13vM83Ku/JA==
+  dependencies:
+    use-force-update "^1.0.0"
+
 read-pkg-up@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/read-pkg-up/-/read-pkg-up-1.0.1.tgz#9d63c13276c065918d57f002a57f40a1b643fb02"
@@ -6889,11 +6896,6 @@ reduce-function-call@^1.0.1:
   integrity sha1-WiAL+S4ON3UXUv5FsKszD9S2vpk=
   dependencies:
     balanced-match "^0.4.2"
-
-redux-saga@^0.16.2:
-  version "0.16.2"
-  resolved "https://registry.yarnpkg.com/redux-saga/-/redux-saga-0.16.2.tgz#993662e86bc945d8509ac2b8daba3a8c615cc971"
-  integrity sha512-iIjKnRThI5sKPEASpUvySemjzwqwI13e3qP7oLub+FycCRDysLSAOwt958niZW6LhxfmS6Qm1BzbU70w/Koc4w==
 
 regenerate@^1.2.1:
   version "1.4.0"
@@ -8168,6 +8170,11 @@ url@^0.11.0:
   dependencies:
     punycode "1.3.2"
     querystring "0.2.0"
+
+use-force-update@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/use-force-update/-/use-force-update-1.0.0.tgz#8b4c3893575b8246a2d9c785a9921572db50e182"
+  integrity sha512-6q85dgqCcp4IAXoWxtm03C4gutwStG9bZRN2bUUTERFnYpuvNorHijCrd2cG6G9XGh80TX0Q5vc1h9ixAijKVQ==
 
 use@^3.1.0:
   version "3.1.1"

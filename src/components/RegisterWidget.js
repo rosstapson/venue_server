@@ -14,6 +14,7 @@ export default class RegisterWidget extends Component {
                 <TextField id='address2' title='Address Line 2' onChange={this.props.onInputChange} /><br />
                 <TextField id='address3' title='Address Line 3' onChange={this.props.onInputChange} /><br />
                 <Button title='zomg' onClick={this.props.doRegister}>Zomg</Button>
+                <Button title='Already registered?' onClick={this.props.goToLogin}>Already Registered?</Button>
             </div>
         )
     }
