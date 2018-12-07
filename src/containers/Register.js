@@ -60,7 +60,10 @@ export default class Register extends Component {
         let value = event.target.value;
         let user = {...this.state.user, [name]: value};
         //console.log(this.state)
-        this.setState({user});
+        
+        this.setState({
+            user: user,
+        });
     }
     onPasswordChange = (event) => {
         let errors = schema.validate(event.target.value, {list: true});
@@ -95,6 +98,7 @@ export default class Register extends Component {
                     onPasswordChange={this.onPasswordChange}
                     isMatching={this.state.isMatching}
                     isValid={this.state.isValid}
+                    
                 />
             </div>
             
