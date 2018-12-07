@@ -8,8 +8,30 @@ export default class RegisterWidget extends Component {
             <div>                
                 <TextField id='username' title='Username' placeholder='Username' onChange={this.props.onInputChange} /><br />
                 <TextField id='email' title='Email' placeholder='Email' onChange={this.props.onInputChange} /><br />
-                <TextField id='password' title='Password' placeholder='Password' type='password' onChange={this.props.onInputChange} /><br />
-                <TextField id='confirmPassword' title='Confirm Password' placeholder='Confirm Password' type='password' onChange={this.props.onInputChange} /><br />
+                <TextField 
+                    id='password' 
+                    title='Password' 
+                    placeholder='Password' 
+                    type='password' 
+                    onChange={this.props.onPasswordChange}
+                    error={!this.props.isValid}
+                />
+                {!this.props.isValid &&
+                    <b>x</b>
+                }
+                <br />
+                <TextField 
+                    id='confirmPassword' 
+                    title='Confirm Password' 
+                    placeholder='Confirm Password' 
+                    type='password' 
+                    onChange={this.props.onConfirmChange}
+                    error={!this.props.isMatching}
+                />
+                {!this.props.isMatching &&
+                    <b>x</b>
+                }
+                <br />
                 <TextField id='address1' title='Address Line 1' placeholder='Address' onChange={this.props.onInputChange} /><br />
                 <TextField id='address2' title='Address Line 2' onChange={this.props.onInputChange} /><br />
                 <TextField id='address3' title='Address Line 3' onChange={this.props.onInputChange} /><br />
